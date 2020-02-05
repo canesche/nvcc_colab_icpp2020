@@ -77,7 +77,7 @@ def dfs_zigzag(g, LIST, VISITED, NEW_EDGE):
                         #print("adiciona %s OUT" % n)
         
 
-def create_list_zigzag(g, dic_id, EDGE, path_list, N_NODE):
+def create_list_zigzag(g, dic_id, EDGE, N_NODE):
 
     NEW_EDGE = []
     OUTS = []
@@ -100,12 +100,12 @@ def create_list_zigzag(g, dic_id, EDGE, path_list, N_NODE):
         if EDGE[i] not in NEW_EDGE:
             NEW_EDGE.append(EDGE[i])
     
-    print(str(N_NODE) + " " + str(len(NEW_EDGE)) + "\n")
+    print(str(N_NODE) + " " + str(len(NEW_EDGE)) + " 3\n")
     for i in range(len(NEW_EDGE)):
         print(str(dic_id[NEW_EDGE[i][0]]) +" "+ str(dic_id[NEW_EDGE[i][1]]))
     print()
 
-def create_list_largura(g, dic_id, path_list):
+def create_list_largura(g, dic_id):
 
     OPEN = []
     for n in g.nodes():
@@ -122,12 +122,12 @@ def create_list_largura(g, dic_id, path_list):
                 OPEN.insert(0, no)
     print()
         
-def create_list_profundidade(g, dic_id, path_list):
+def create_list_profundidade(g, dic_id):
     
     OPEN = []
     for n in g.nodes():
         if g.in_degree(n) == 0:
-            OPEN.insert(0,n)
+            OPEN.append(n)
 
     CLOSED = []
     while len(OPEN) > 0 :
@@ -143,7 +143,6 @@ if __name__ == "__main__":
 
     if len(sys.argv) > 1:
         dot = sys.argv[1]
-        path_list = sys.argv[2]
     else:
         print("python3 dot_to_list <name.dot>\n")
         exit(0)
@@ -152,9 +151,8 @@ if __name__ == "__main__":
 
     EDGE = []
     dic_id, N_NODE = create_id(g, EDGE)
-    create_list_zigzag(g, dic_id, EDGE, path_list, N_NODE)
+    create_list_zigzag(g, dic_id, EDGE, N_NODE)
 
-    create_list_largura(g, dic_id, path_list)
+    create_list_profundidade(g, dic_id)
 
-    create_list_profundidade(g, dic_id, path_list)
-    
+    create_list_largura(g, dic_id)
