@@ -31,7 +31,7 @@ def create_id(g, EDGE):
     #for no in dic_id:
     #    print(dic_id[no], no)
 
-    return dic_id, count-1
+    return dic_id, count
 
 def dfs_zigzag(g, LIST, VISITED, NEW_EDGE):
     
@@ -39,7 +39,6 @@ def dfs_zigzag(g, LIST, VISITED, NEW_EDGE):
         node, direction = LIST.pop(0) # remove stack
         #print("LIST = ", LIST)
         #print(node, direction)
-        
         #input()
 
         if direction == 'IN':
