@@ -100,7 +100,7 @@ def create_list_zigzag(g, dic_id, EDGE, N_NODE):
         if EDGE[i] not in NEW_EDGE:
             NEW_EDGE.append(EDGE[i])
     
-    print(str(N_NODE) + " " + str(len(NEW_EDGE)) + " 3\n")
+    print(str(N_NODE) + " " + str(len(NEW_EDGE)) + "\n")
     for i in range(len(NEW_EDGE)):
         print(str(dic_id[NEW_EDGE[i][0]]) +" "+ str(dic_id[NEW_EDGE[i][1]]))
     print()
