@@ -152,6 +152,6 @@ if __name__ == "__main__":
     dic_id, N_NODE = create_id(g, EDGE)
     create_list_zigzag(g, dic_id, EDGE, N_NODE)
 
-    create_list_profundidade(g, dic_id)
+    #create_list_profundidade(g, dic_id)
 
-    create_list_largura(g, dic_id)
+    #create_list_largura(g, dic_id)
