@@ -120,6 +120,36 @@ def create_list_zigzag(g, dic_id, EDGE, N_NODE):
                 print(EDGE_LIST[i-1]+" "+EDGE_LIST[i]+" ", end="")
             print("\n")
 
+def create_list_zigzag_single(g, dic_id, EDGE, N_NODE):
+
+    OUTS = []
+    # get the node inputs
+    for n in g.nodes():
+        if g.out_degree(n) == 0:
+            OUTS.append(n)
+    
+    NEW_EDGE = []
+    EDGE_LIST = []
+    LIST = []
+    VISITED = []
+    
+    for no in OUTS:
+        if no not in VISITED:
+            VISITED.append(no)
+            LIST.insert(0, [no, 'IN']) # insert stack
+            dfs_zigzag(g, LIST, VISITED, NEW_EDGE, True)
+
+    for i in range(len(EDGE)):
+        if EDGE[i] not in NEW_EDGE:
+            NEW_EDGE.append(EDGE[i])
+    
+        EDGE_LIST.append(str(dic_id[NEW_EDGE[i][0]]))
+        EDGE_LIST.append(str(dic_id[NEW_EDGE[i][1]]))
+
+    for i in range(0,len(EDGE_LIST),2):
+        print(EDGE_LIST[i]+" "+EDGE_LIST[i+1]+" ", end="")
+    print("\n")
+
 def create_list_largura(g, dic_id):
 
     EDGE_LIST = []
@@ -187,8 +217,10 @@ if __name__ == "__main__":
 
     print(str(N_NODE) + " " + str(N_EDGE) + "\n")
 
-    create_list_zigzag(g, dic_id, EDGE, N_NODE)
+    create_list_zigzag_single(g, dic_id, EDGE, N_NODE)
 
-    create_list_largura(g, dic_id)
+    #create_list_zigzag(g, dic_id, EDGE, N_NODE)
 
-    create_list_profundidade(g, dic_id)
+    #create_list_largura(g, dic_id)
+
+    #create_list_profundidade(g, dic_id)

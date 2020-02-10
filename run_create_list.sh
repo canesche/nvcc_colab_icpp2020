@@ -4,5 +4,5 @@ GRAPH=('arf' 'conv3' 'cosine1' 'cosine2' 'Cplx8' 'ewf' 'feedback_points' 'Filter
 
 for ((i=0; i < ${#GRAPH[@]}; i++)) do
     echo "GRAPH "${GRAPH[i]}" TO LIST"
-    python3 scripts/dot_to_list.py dot/${GRAPH[i]}.dot > list/${GRAPH[i]}_exp.in 
+    python3 scripts/dot_to_list.py dot/${GRAPH[i]}.dot > list/${GRAPH[i]}_zigzag.in 
 done
