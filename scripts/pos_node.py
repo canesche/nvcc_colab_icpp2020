@@ -80,3 +80,5 @@ if __name__ == "__main__":
     MAX_X = math.ceil(math.sqrt(SIZE_NODE))
 
     print(MAX_Y)
+
+	# regra de 3 aqui...
