@@ -10,7 +10,7 @@ if __name__ == "__main__":
             print("Number of nodes is greater than 0")
             exit(0)
     else:
-        print("python3 create_tree_dot.py <number_node> <number_tree>\n")
+        print("python3 generate_tree_dot.py <number_node> <number_tree>\n")
         exit(0)
 
     count = 0
@@ -32,8 +32,8 @@ if __name__ == "__main__":
             g.add_edge(node, count)
         count += 1
     
-    print(g.nodes)
-    print(g.edges)
-    print(list_node)
+    #print(g.nodes)
+    #print(g.edges)
+    #print(list_node)
 
     nx.drawing.nx_pydot.write_dot(g, "../dot/tree_n_"+str(number_node)+"_t_"+str(number_tree)+".dot")
