@@ -45,15 +45,14 @@ def print_graph(x_pos, y_pos, node, label):
 
     plt.show()
 
-'''
 def method_shift(conflict_node, GRID, x_new, y_new):
     while len(conflict_node) > 0:
-        
+        print(conflict_node)
         node = conflict_node.pop(0)
         pos_x, pos_y = x_new[node], y_new[node]
 
         # try place on neighborhood
-        elif pos_x+1 < len(GRID[0]) and GRID[pos_x+1][pos_y] == -1:
+        if pos_x+1 < len(GRID[0]) and GRID[pos_x+1][pos_y] == -1:
             x_new[node] = pos_x + 1
             GRID[x_new[node]][y_new[node]] = node
             continue
@@ -86,14 +85,19 @@ def method_shift(conflict_node, GRID, x_new, y_new):
             GRID[x_new[node]][y_new[node]] = node
             continue
         
-        print("cheguei aqui!!!")
+        #print("cheguei aqui!!! %d %d" %(pos_x,pos_y))
         # shift
-        for i in range(len(GRID[0]),,-1)
-        # try the method here
-        # thinking ...
+        for i in range(len(GRID[0])-1, pos_y,-1):
+            #print(GRID[pos_x][i])
+            if (i == len(GRID[0])-1 and GRID[pos_x][i] != -1):
+                conflict_node.append(GRID[pos_x][i])
+            GRID[pos_x][i] = GRID[pos_x][i-1]
+            y_new[GRID[pos_x][i-1]] = i-1
+        GRID[pos_x][pos_y] = node
+        y_new[node] = pos_y
 
     return GRID, x_new, y_new 
-'''
+
 def method_splash(conflict_node, GRID, x_new, y_new):
     while len(conflict_node) > 0:
         
@@ -143,7 +147,7 @@ def method_splash(conflict_node, GRID, x_new, y_new):
                     found = True
                     break
             if (found):
-                print("cheguei aqui!!! %d" %node)
+                #print("Splash!!! %d" %node)
                 break
         # try the method here
 
@@ -178,13 +182,15 @@ if __name__ == "__main__":
 	
     type_graph = ['dot', 'neato', 'fdp', 'sfdp', 'twopi', 'circo']
 
+    print(len(type_graph))
+
     for k in range(len(type_graph)):
 
-        print("\n\nTYPE: %s\n" %type_graph[k])
+        #print("\n\nTYPE: %s\n" %type_graph[k])
 
         get_position = nx.drawing.nx_agraph.graphviz_layout(g, prog=type_graph[k])
 
-        print(get_position)
+        #print(get_position)
 
         GRID_SIZE = math.ceil(math.sqrt(SIZE_NODE))
 
@@ -222,18 +228,35 @@ if __name__ == "__main__":
                 # save to future, and then choice a new place
                 conflict_node.append(node[i])
 
-        print("Conflict: ", conflict_node)
+        #print("Conflict: ", conflict_node)
         time_placement = time.clock() - start
 
+        #print(GRID)
+
         start = time.clock()
-        new_GRID, m1_x_new, m1_y_new = method_splash(conflict_node.copy(), GRID.copy(), x_new.copy(), y_new.copy())
-        time_conflict = time.clock() - start
+        m1_new_GRID, m1_x_new, m1_y_new = method_splash(conflict_node.copy(), GRID.copy(), x_new.copy(), y_new.copy())
+        time_conflict_m1 = time.clock() - start
+
+        start = time.clock()
+        #m2_new_GRID, m2_x_new, m2_y_new = method_shift(conflict_node.copy(), GRID.copy(), x_new.copy(), y_new.copy())
+        time_conflict_m2 = time.clock() - start
 
         #print_graph(m1_x_new, m1_y_new, node, label)
 
-        print(new_GRID)
-        print()
-        cost_m1 = function_cost_1hop(m1_x_new, m1_y_new, dict_id, EDGE)
+        #print(m2_new_GRID)
+        #cost_m1 = function_cost_1hop(m1_x_new, m1_y_new, dict_id, EDGE)
+        #cost_m2 = function_cost_1hop(m2_x_new, m2_y_new, dict_id, EDGE)
 
-        print("Cost 1-hop: %d" %cost_m1)
-        print("Time (place&conflict) %.4f ms"%(time_placement*1000+time_conflict*1000))
+        #print("Cost 1-hop: %d" %cost_m1)
+        #print("Cost 1-hop: %d" %cost_m2)
+        #print("Time Splash (place&conflict) %.4f ms"%(time_placement*1000+time_conflict_m1*1000))
+        #print("Time Shift (place&conflict) %.4f ms"%(time_placement*1000+time_conflict_m2*1000))
+
+        for i in range(GRID_SIZE):
+            for j in range(GRID_SIZE):
+                if (m1_new_GRID[i][j] != -1):
+                    print("%d " %m1_new_GRID[i][j], end="")
+                else:
+                    print("255 ", end="")
+        print()
+
