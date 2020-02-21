@@ -36,4 +36,4 @@ if __name__ == "__main__":
     #print(g.edges)
     #print(list_node)
 
-    nx.drawing.nx_pydot.write_dot(g, "../dot/tree_n_"+str(number_node)+"_t_"+str(number_tree)+".dot")
+    nx.drawing.nx_pydot.write_dot(g, "dot/tree_n_"+str(number_node)+"_t_"+str(number_tree)+".dot")
