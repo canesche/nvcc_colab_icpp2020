@@ -92,6 +92,7 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
             Stack.insert(0, b) # put b on the top
         
         elif fanin == 2: # Case 2
+			#TODO 
             pass
 
         print(Stack)
