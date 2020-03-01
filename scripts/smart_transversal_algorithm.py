@@ -81,90 +81,70 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
     TAM_OFFSET = len(offset_x)
 
     Stack = OutputList.copy()
-    VISITED = [OutputList[0][0]]
-    Unvisited_Fanin = []
+    VISITED = []
+    EDGES = []
+
+    L_fanin = {}
+    L_fanout = {}
+    for no in g:
+        L_fanin[no] = list(g.predecessors(no))
+        L_fanout[no] = list(g.successors(no))
 
     while Stack:
         print("Stack:", Stack)
 
-        a, direction = Stack.pop(0) # get the top
-        num_a = dict_id[a]
-        print("Node a = %s number %d dir %s" %(a, num_a, direction))
-        
-        pos_a_x = pos_x[num_a] 
-        pos_a_y = pos_y[num_a]
-        
-        if pos_x[num_a] == 255:
-            # Place the element in 'a'
-            pos_x[num_a] = pos_a_x = 0
-            pos_y[num_a] = pos_a_y = 0
-            pos_node = pos_a_x*GRID_SIZE + pos_a_y
-            grid[pos_node] = num_a
+        a, direction = Stack.pop(0) # get the top1
+
+        fanin = len(L_fanin[a])     # get size fanin
+        fanout = len(L_fanout[a])    # get size fanout
 
         if direction == 'IN': # direction == 'IN'
             
-            L_fanin = list(g.predecessors(a)) # get elem fanin
-            fanin = g.in_degree(a)      # get size fanin
-            fanout = g.out_degree(a)    # get size fanout
-            
-            if fanout > 1: # Case 3
-                L_fanout = list(g.successors(a)) # get elem fanin
+            if fanout >= 1: # Case 3
 
                 print("-----------------------------------------------CASE 3 IN")
-                print("Fanin:", L_fanin)
-                print("Fanout:", L_fanout)
+                print("Fanin:", L_fanin[a])
+                print("Fanout:", L_fanout[a])
 
-                for elem in L_fanin:
-                    if elem not in VISITED:
-                        Stack.insert(0, [elem, 'IN'])
+                b = L_fanout[a][-1] # get the element more the right side
+
+                Stack.insert(0, [a, 'IN'])
+                Stack.insert(0, [b, 'OUT'])
                 
-                get_elem = False
-                for elem in L_fanout:
-                    if elem not in VISITED:
-                        Stack.insert(0, [elem, 'OUT'])
-                        b = elem                # get the last elem not visited
-                        get_elem = True
+                L_fanout[a].remove(b)
+                L_fanin[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'O'])
+                print("a -> b", a, b)
 
-                if not get_elem:
-                    print("Already visited")
-                    continue
-                VISITED.append(b)       # PUT b visited
-
-                num_b = dict_id[b]
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
-
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
                 print("Change direction")
 
             elif fanin == 1: # Case 1
                 print("-----------------------------------------------CASE 1 IN")
-                print("Fanin:", L_fanin)
+                print("Fanin:", L_fanin[a])
                 # Place the element in 'b'
                 
-                b = L_fanin[0] # just have 1 element (fanin == 1)
+                b = L_fanin[a][0] # just have 1 element (fanin == 1)
+                '''
                 if b in VISITED:
                     print("Already visited")
                     continue
+                Stack.insert(0, [b, 'IN'])
                 VISITED.append(b)          # PUT b visited
-                
-                Stack.insert(0, [b, 'IN']) # put b on the top
-                
-                num_b = dict_id[b]
-
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
-
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
+                '''
+                Stack.insert(0, [b, 'IN'])
+                L_fanin[a].remove(b)
+                L_fanout[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'I'])
+                print("a -> b",a, b)
             
-            elif fanin > 1 and fanout == 1: # Case 2
+            elif fanin > 1: # Case 2
                 print("-----------------------------------------------CASE 2 IN")
-                print("Fanin:", L_fanin)
-                
+                print("Fanin:", L_fanin[a])
+                '''
                 get_elem = False
-                for elem in L_fanin:
+                for elem in L_fanin[a]:
                     if elem not in VISITED:
                         Stack.insert(0, [elem, 'IN'])
                         b = elem            #  # get the elem more in the right
@@ -173,38 +153,31 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 if not get_elem:
                     print("Already visited")
                     continue
-                VISITED.append(b)       # PUT b visited
-
-                num_b = dict_id[b]
-                print("GET b = %s number %d" %(b, num_b))
-
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
-
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
-            
-            
+                '''
+                b = L_fanin[a][-1]      # get the elem more in the right
+                L_fanin[a].remove(b)
+                L_fanout[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'I'])
+                Stack.insert(0, [a, 'IN'])
+                Stack.insert(0, [b, 'IN'])
+                print("a -> b",a, b)           
 
         else: # direction == 'OUT'
-            L_fanout = list(g.successors(a)) # get elem fanout
-            fanin = g.in_degree(a)      # get size fanin
-            fanout = g.out_degree(a)    # get size fanout
-
-            if fanin > 1: # Case 3
-
-                L_fanin = list(g.predecessors(a)) # get elem fanin
+            
+            if fanin >= 1: # Case 3
 
                 print("-----------------------------------------------CASE 3 OUT")
-                print("Fanin:", L_fanin)
-                print("Fanout:", L_fanout)
+                print("Fanin:", L_fanin[a])
+                print("Fanout:", L_fanout[a])
 
-                for elem in L_fanout:
+                '''
+                for elem in L_fanout[a]:
                     if elem not in VISITED:
                         Stack.insert(0, [elem, 'OUT'])
                 
                 get_elem = False
-                for elem in L_fanin:
+                for elem in L_fanin[a]:
                     if elem not in VISITED:
                         Stack.insert(0, [elem, 'IN'])
                         b = elem                # get the last elem not visited
@@ -213,44 +186,51 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 if not get_elem:
                     print("Already visited")
                     continue
+                Stack.insert(1, [a, 'OUT'])
+
                 VISITED.append(b)       # PUT b visited
+                '''
 
-                num_b = dict_id[b]
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
+                b = L_fanin[a][0] # get the element more left side
 
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
-                print("Change direction")
+                Stack.insert(0, [a, 'OUT'])
+                Stack.insert(0, [b, 'IN'])
+                
+                L_fanin[a].remove(b)
+                L_fanout[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'I'])
+                print("a -> b",a, b)
 
             elif (fanout == 1): # Case 1
                 print("-----------------------------------------------CASE 1 OUT")
-                print("Fanout:", L_fanout)
+                print("Fanout:", L_fanout[a])
                 # Place the element in 'b'
 
-                b = L_fanout[0] # just have 1 element (fanout == 1)
+                '''
+                b = L_fanout[a][0] # just have 1 element (fanout == 1)
                 if b in VISITED:
                     print("Already visited")
                     continue
+
                 VISITED.append(b)          # PUT b visited
+                '''
+                b = L_fanout[a][0] # just have 1 element (fanout == 1)
+                L_fanout[a].remove(b)
+                L_fanin[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'O'])
                 
                 Stack.insert(0, [b, 'OUT']) # put b on the top
-                
-                num_b = dict_id[b]
-
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
-
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
-                VISITED.append(b)          # PUT b visited
+                print("a -> b",a, b)
             
             elif fanout > 1: # Case 2
                 print("-----------------------------------------------CASE 2 OUT")
-                print("Fanout:", L_fanout)
+                print("Fanout:", L_fanout[a])
                 
+                '''
                 get_elem = False
-                for elem in L_fanout:
+                for elem in L_fanout[a]:
                     if elem not in VISITED:
                         Stack.insert(0, [elem, 'OUT'])
                         b = elem            #  # get the elem more in the right
@@ -260,21 +240,24 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                     print("Already visited")
                     continue
                 VISITED.append(b)       # PUT b visited
-                
-                num_b = dict_id[b]
-                print("GET b = %s number %d" %(b, num_b))
+                '''
+                b = L_fanout[a][0]  # get the element more left side
 
-                bool_place = place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, offset_y, TAM_OFFSET)
+                L_fanout[a].remove(b)
+                L_fanin[b].remove(a)
+                if b not in VISITED: 
+                    EDGES.append([a,b,'O'])
 
-                if not bool_place:
-                    print("Not place %s -> %s", a, b)
-                    break
-                VISITED.append(b)       # PUT b visited
+                Stack.insert(0, [b, 'OUT']) # put b on the top
+                print("a -> b",a, b)
         
-        print_grid(grid, GRID_SIZE, len(grid))
+        VISITED.append(a)
+        #print_grid(grid, GRID_SIZE, len(grid))
         #print("vector pos_x:", pos_x)
         #print("vector pos_y:", pos_y)
         print()
+    for i in EDGES:
+        print(i)
 
 if __name__ == "__main__":
     
