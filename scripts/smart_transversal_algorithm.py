@@ -60,6 +60,12 @@ def place_b(num_b, pos_a_x, pos_a_y, pos_x, pos_y, grid, GRID_SIZE, offset_x, of
                 return True
     return False
 
+def func_key(val1, val2):
+    return str(val1) + " " + str(val2)
+
+def func_unkey(string):
+    return string.split(" ")
+
 def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
     
     OutputList = []
@@ -83,6 +89,7 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
     Stack = OutputList.copy()
     VISITED = []
     EDGES = []
+    CYCLE = []
 
     L_fanin = {}
     L_fanout = {}
@@ -115,6 +122,9 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 L_fanin[b].remove(a)
                 if b not in VISITED: 
                     EDGES.append([a,b,'O'])
+                else:
+                    CYCLE.append([a,b])
+                    print(b)
                 print("%s -> %s Case %d IN" %(a, b, 3))
 
                 #print("Change direction")
@@ -132,7 +142,8 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 if b not in VISITED: 
                     EDGES.append([a,b,'I'])
                 else:
-                    print(a)
+                    CYCLE.append([a,b])
+                    print(b)
                 print("%s -> %s Case %d IN" %(a, b, 1))
             
             elif fanin > 1: # Case 2
@@ -144,7 +155,9 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 L_fanout[b].remove(a)
                 if b not in VISITED: 
                     EDGES.append([a,b,'I'])
-                #Stack.insert(0, [a, 'IN'])
+                else: 
+                    CYCLE.append([a,b])
+                    print(b)
                 Stack.insert(0, [b, 'IN'])
                 print("%s -> %s Case %d IN" %(a, b, 2))        
 
@@ -165,6 +178,9 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 L_fanout[b].remove(a)
                 if b not in VISITED: 
                     EDGES.append([a,b,'I'])
+                else:
+                    CYCLE.append([a,b])
+                    print(b)
                 print("%s -> %s Case %d OUT" %(a, b, 3))
 
             elif (fanout == 1): # Case 1
@@ -178,8 +194,8 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 if b not in VISITED: 
                     EDGES.append([a,b,'O'])
                 else:
+                    CYCLE.append([a,b])
                     print(b)
-                
                 Stack.insert(0, [b, 'OUT']) # put b on the top
                 print("%s -> %s Case %d OUT" %(a, b, 1))
             
@@ -193,6 +209,9 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
                 L_fanin[b].remove(a)
                 if b not in VISITED: 
                     EDGES.append([a,b,'O'])
+                else:
+                    CYCLE.append([a,b])
+                    print(b)
 
                 Stack.insert(0, [b, 'OUT']) # put b on the top
                 print("%s -> %s Case %d OUT" %(a, b, 2))
@@ -202,8 +221,58 @@ def smart_tranversal_algorithm(g, dict_id, EDGE, N_NODE):
         #print("vector pos_x:", pos_x)
         #print("vector pos_y:", pos_y)
         #print()
-    for i in EDGES:
-        print(i)
+    
+    dic_CYCLE = {}
+    # Initialization dictionary
+    for i in range(len(EDGES)):
+        key = func_key(EDGES[i][0],EDGES[i][1])
+        dic_CYCLE[key] = []
+        print(EDGES[i])
+    
+    print(CYCLE)
+    for i in range(len(CYCLE)):
+        found_start = False
+        count = 0
+        value1 = ''
+        elem_cycle_begin = CYCLE[i][0]
+        elem_cycle_end = CYCLE[i][1]
+        walk_key = []
+        for j in range(len(EDGES)-1,-1,-1):
+            
+            if EDGES[j][1] == elem_cycle_begin and not found_start:
+                value1 = EDGES[j][0]
+                key = func_key(EDGES[j][0],EDGES[j][1])
+                walk_key.insert(0, key)
+                dic_CYCLE[key].append([elem_cycle_end, count])
+                count += 1
+                found_start = True
+
+            elif found_start and (value1 == EDGES[j][1] or EDGES[j][0] == elem_cycle_end or EDGES[j][1] == elem_cycle_end):
+                value1 = EDGES[j][0]
+                value2 = EDGES[j][1]
+                key = func_key(EDGES[j][0],EDGES[j][1])
+
+                if EDGES[j][0] != elem_cycle_end and EDGES[j][1] != elem_cycle_end:
+                    walk_key.insert(0, key) 
+                    dic_CYCLE[key].append([elem_cycle_end, count])
+                    count += 1
+
+                if value1 == elem_cycle_end or value2 == elem_cycle_end:
+                    found_start = False
+                    # Go back and update values
+                    for k in range(0, count//2):
+                        dic_actual = dic_CYCLE[walk_key[k]]
+                        for l in range(len(dic_actual)):
+                            if (dic_actual[l][0] == elem_cycle_end):
+                                dic_CYCLE[walk_key[k]][l][1] = k
+                    break # to the next on the vector CYCLE
+        #break
+    
+    print(dic_CYCLE)
+
+    for key in dic_CYCLE:
+        print(key, ": ", dic_CYCLE[key])
+
 
 if __name__ == "__main__":
     
