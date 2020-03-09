@@ -1,3 +1,3 @@
-# nvcc_colab_icpp2020
+# nvcc_colab
 Support material to nvcc
 
