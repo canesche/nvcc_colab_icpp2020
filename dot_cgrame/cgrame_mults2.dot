@@ -1,0 +1,47 @@
+digraph G {
+mul0[opcode=mul];
+load2[opcode=load];
+add3[opcode=add];
+mul5[opcode=mul];
+load7[opcode=load];
+add8[opcode=add];
+mul9[opcode=mul];
+load11[opcode=load];
+add12[opcode=add];
+mul14[opcode=mul];
+load16[opcode=load];
+add17[opcode=add];
+mul18[opcode=mul];
+mul20[opcode=mul];
+mul21[opcode=mul];
+mul22[opcode=mul];
+add23[opcode=add];
+output24[opcode=output];
+reg0[opcode=reg];
+reg1[opcode=reg];
+reg2[opcode=reg];
+reg3[opcode=reg];
+reg5[opcode=reg];
+load2->add8[operand=1]; //load->add
+add3->mul5[operand=1]; //add->gep_mul
+add3->mul0[operand=1]; //add->gep_mul
+add3->mul9[operand=1]; //add->gep_mul
+add3->add12[operand=0]; //add->add
+load7->reg2->add8[operand=0]; //load->add
+add8->mul18[operand=0]; //add->mul
+load11->reg0
+reg0->reg5->add17[operand=1]; //load->add
+add12->mul14[operand=1]; //add->gep_mul
+load16->reg3
+reg3->mul21[operand=1]; //load->mul
+add17->mul22[operand=1]; //add->mul
+mul18->mul20[operand=0]; //mul->mul
+mul20->mul21[operand=0]; //mul->mul
+mul21->mul22[operand=0]; //mul->mul
+mul22->add23[operand=0]; //mul->add
+add23->output24[operand=0]; //add->output
+mul0->reg1->load2[operand=0]; //gep_mul->load
+mul5->load7[operand=0]; //gep_mul->load
+mul9->load11[operand=0]; //gep_mul->load
+mul14->load16[operand=0]; //gep_mul->load
+}

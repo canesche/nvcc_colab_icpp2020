@@ -1,0 +1,11 @@
+digraph G {
+mul0[opcode=mul];
+load2[opcode=load];
+add3[opcode=add];
+output4[opcode=output];
+add5[opcode=add];
+load2->add3[operand=0]; //load->add
+add3->output4[operand=0]; //add->output
+add5->mul0[operand=1]; //add->gep_mul
+mul0->load2[operand=0]; //gep_mul->load
+}
