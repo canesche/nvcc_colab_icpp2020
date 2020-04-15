@@ -19,6 +19,7 @@ if __name__ == "__main__":
     
     g = nx.DiGraph()
 
+    before = []
     for k in range(number_tree):
         list_node = []
         for i in range(qtd):
@@ -33,15 +34,26 @@ if __name__ == "__main__":
             g.add_edge(node, count)
         count += 1
     
-    # get the leaf
-    leaf = []
-    for node in g.nodes():
-        print(node)
-        print()
-        if len(list(g.successors(node))) == 0:
-            leaf.append(node)
-    
-    print(leaf)
+        # get the leaf
+        leaf = []
+        for node in g.nodes():
+            #print(node)
+            if len(list(g.successors(node))) == 0:
+                if node not in before:
+                    leaf.append(node)
+        
+        for i in range(len(leaf)):
+            print(leaf[i], count)
+            g.add_edge(leaf[i], count)
+            for j in range(node_reduce-1):
+                print(count, count+1)
+                g.add_edge(count, count+1)
+                count += 1
+            before.append(count)
+            count += 1
+
+        for i in range(len(leaf)):
+            before.append(leaf[i])
     #print(g.nodes)
     #print(g.edges)
     #print(list_node)
