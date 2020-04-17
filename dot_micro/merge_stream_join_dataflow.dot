@@ -1,0 +1,18 @@
+digraph merge_stream_join_dataflow {
+    
+ 0 [label = "strm list1"]
+ 1 [label = "strm list2"]
+ 2 [label = "cmp"]
+ 3 [label = "select"]
+ 4 [label = "strm st out_list"]
+ 
+ 0 -> 2
+ 0 -> 3
+ 1 -> 3
+ 1 -> 2
+ 2 -> 3
+ 2 -> 0
+ 2 -> 1
+ 3 -> 4
+ 
+}

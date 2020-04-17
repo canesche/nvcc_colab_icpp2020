@@ -1,0 +1,37 @@
+digraph Streaming_Database_Join {
+
+0 [label = "ld key1"]
+1 [label = "ld key2"]
+2 [label = "cmp"]
+3 [label = "select"]
+4 [label = "select"]
+5 [label = "select"]
+6 [label = "ld data1"]
+7 [label = "ld data2"]
+8 [label = "++"]
+9 [label = "++"]
+10 [label = "++"]
+11 [label = "st data1"]
+12 [label = "st data2"]
+13 [label = "st key"]
+
+0 -> 2
+0 -> 13
+1 -> 2
+2 -> 3
+2 -> 4
+2 -> 5
+2 -> 6
+2 -> 7
+3 -> 8
+4 -> 9
+5 -> 10
+5 -> 13
+8 -> 8
+8 -> 0
+9 -> 9 
+9 -> 1
+10 -> 10
+10 -> 11
+10 -> 12
+}

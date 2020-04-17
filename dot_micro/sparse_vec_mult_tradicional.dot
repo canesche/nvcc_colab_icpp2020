@@ -1,0 +1,33 @@
+digraph Sparse_Vec_Mult {
+ 0  [label = "ld idx1"]
+ 1  [label = "ld idx2"]
+ 2  [label = "ld val1"]
+ 3  [label = "ld val2"]
+ 4  [label = "cmp"]
+ 5  [label = "select"]
+ 6  [label = "select"]
+ 7  [label = "++"]
+ 8  [label = "++"]
+ 9  [label = "x"]
+ 10 [label = "+"]
+ 
+ 0 -> 4
+ 1 -> 4
+ 4 -> 5
+ 4 -> 6
+ 4 -> 2
+ 4 -> 3
+ 2 -> 9
+ 3 -> 9
+ 9 -> 10
+ 10 -> 10
+ 5 -> 7
+ 6 -> 8
+ 7 -> 7
+ 8 -> 8
+ 7 -> 0
+ 8 -> 1
+ 7 -> 2
+ 8 -> 3
+ 
+}
