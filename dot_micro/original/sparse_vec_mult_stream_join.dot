@@ -1,0 +1,19 @@
+digraph Sparse_Vec_Mult_stream_join_dataflow {
+    
+ 0 [label = "strm idx1"]
+ 1 [label = "strm idx2"]
+ 2 [label = "strm val1"]
+ 3 [label = "strm val2"]
+ 4 [label = "cmp"]
+ 5 [label = "x"]
+ 6 [label = "+"]
+ 
+ 
+ 0 -> 4
+ 1 -> 4
+ 2 -> 5
+ 3 -> 5
+ 4 -> 5
+ 5 -> 6
+ 
+}

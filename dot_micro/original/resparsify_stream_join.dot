@@ -1,0 +1,18 @@
+digraph Re_sparsify_stream_join_dataflow {
+    
+ 0 [label = "strm in"]
+ 1 [label = "ReLu"]
+ 2 [label = "cmp"]
+ 3 [label = "+"]
+ 4 [label = "strm st ind"]
+ 5 [label = "strm st val"]
+
+ 0 -> 1
+ 1 -> 2
+ 1 -> 5
+ 2 -> 5
+ 2 -> 4
+ 2 -> 3
+ 3 -> 4
+ 
+}

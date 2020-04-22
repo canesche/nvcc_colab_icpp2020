@@ -1,0 +1,27 @@
+digraph Streaming_Database_join_stream_join_dataflow {
+    
+ 0 [label = "strm key1"]
+ 1 [label = "strm key2"]
+ 2 [label = "strm data1"]
+ 3 [label = "strm data2"]
+ 4 [label = "cmp"]
+ 5 [label = "concat"]
+ 6 [label = "concat"]
+ 7 [label = "strm st tbl_out"]
+ 
+ 
+ 0 -> 4
+ 1 -> 4
+ 1 -> 6
+ 2 -> 5
+ 3 -> 5
+ 4 -> 5
+ //4 -> 0
+ //4 -> 1
+ 4 -> 6
+ 5 -> 6
+ //5 -> 2
+ //5 -> 3
+ 6 -> 7
+ 
+}
