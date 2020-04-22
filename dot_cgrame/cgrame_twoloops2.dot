@@ -27,7 +27,7 @@ reg1->add9[operand=0]; //mul->add
 add9->shl10[operand=0]; //add->shl
 shl10->reg2
 reg2->add14[operand=1]; //shl->add
-add12->add14[operand=0]; //add->add
+//add12->add14[operand=0]; //add->add
 add14->output15[operand=0]; //add->output
 add14->add12[operand=0]; //add->add
 add16->add0[operand=0]; //add->add
