@@ -8,9 +8,9 @@ digraph Streaming_Database_Join {
 5 [label = "select"]
 6 [label = "ld data1"]
 7 [label = "ld data2"]
-8 [label = "++"]
-9 [label = "++"]
-10 [label = "++"]
+//8 [label = "++"]
+//9 [label = "++"]
+//10 [label = "++"]
 11 [label = "st data1"]
 12 [label = "st data2"]
 13 [label = "st key"]
@@ -29,7 +29,8 @@ digraph Streaming_Database_Join {
 5 -> 10
 5 -> 13
 //8 -> 8
-8 -> 0
+//8 -> 0
+0 -> 8
 //9 -> 9 
 9 -> 1
 //10 -> 10
