@@ -198,9 +198,9 @@ def create_list_profundidade(g, dic_id):
         print(EDGE_LIST[i]+" "+EDGE_LIST[i+1]+" ", end="")
     print("\n")
 
-    for i in range(len(EDGE_LIST)-1,0,-2):
-        print(EDGE_LIST[i-1]+" "+EDGE_LIST[i]+" ", end="")
-    print("\n")
+    #for i in range(len(EDGE_LIST)-1,0,-2):
+    #    print(EDGE_LIST[i-1]+" "+EDGE_LIST[i]+" ", end="")
+    #print("\n")
 
 if __name__ == "__main__":
 
@@ -217,10 +217,10 @@ if __name__ == "__main__":
 
     print(str(N_NODE) + " " + str(N_EDGE) + "\n")
 
-    create_list_zigzag_single(g, dic_id, EDGE, N_NODE)
+    #create_list_zigzag_single(g, dic_id, EDGE, N_NODE)
 
     #create_list_zigzag(g, dic_id, EDGE, N_NODE)
 
     #create_list_largura(g, dic_id)
 
-    #create_list_profundidade(g, dic_id)
+    create_list_profundidade(g, dic_id)
