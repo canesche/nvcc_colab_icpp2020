@@ -11,7 +11,6 @@ digraph cosine2 {
     10 [label = imp];
     11 [label = imp];
     12 [label = sub];
-    13 [label = imp];
     14 [label = imp];
     15 [label = add];
     16 [label = imp];
