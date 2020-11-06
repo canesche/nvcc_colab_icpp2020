@@ -1,0 +1,12 @@
+0 const1
+1 const4
+2 const8
+3 const11
+4 mul0
+5 mul3
+6 mul7
+7 add10
+8 load2
+9 load5
+10 store9
+11 add6

@@ -1,4 +1,4 @@
-
+set -e
 
 GRAPH=(
 mac
@@ -27,4 +27,5 @@ jpeg_fdct_islow
 for ((i=0; i < ${#GRAPH[@]}; i++)) do
     echo "GRAPH "${GRAPH[i]}" TO LIST"
     python3 scripts/dot_to_list.py dot_dac/cgra/${GRAPH[i]}.dot > list_dac/cgra/${GRAPH[i]}.in 
+    python3 scripts/dot_to_list_name.py dot_dac/cgra/${GRAPH[i]}.dot > list_name_dac/cgra/${GRAPH[i]}.in 
 done

@@ -1,0 +1,11 @@
+0 const1
+1 const4
+2 const10
+3 mul0
+4 mul3
+5 add9
+6 load2
+7 load5
+8 mul6
+9 add7
+10 output8
