@@ -1,284 +1,373 @@
-digraph g {
- pi5 -> new_n12_
- pi3 -> new_n12_
- pi4 -> new_n12_
- new_n12_ -> new_n13_
- pi5 -> new_n13_
- pi7 -> new_n13_
- pi6 -> new_n13_
- pi8 -> new_n14_
- pi4 -> new_n14_
- pi3 -> new_n14_
- new_n13_ -> new_n14_
- new_n14_ -> new_n15_
- pi1 -> new_n15_
- pi2 -> new_n15_
- pi1 -> new_n16_
- pi2 -> new_n16_
- new_n16_ -> new_n17_
- pi7 -> new_n17_
- pi8 -> new_n17_
- pi2 -> new_n18_
- pi6 -> new_n18_
- pi5 -> new_n18_
- pi8 -> new_n18_
- pi1 -> new_n19_
- pi4 -> new_n19_
- pi5 -> new_n19_
- pi6 -> new_n19_
- new_n18_ -> new_n20_
- new_n19_ -> new_n20_
- new_n17_ -> new_n20_
- pi3 -> new_n20_
- new_n16_ -> new_n21_
- pi3 -> new_n21_
- pi4 -> new_n21_
- pi5 -> new_n21_
- new_n20_ -> new_n22_
- new_n21_ -> new_n22_
- new_n15_ -> new_n22_
- pi0 -> new_n22_
- pi6 -> new_n23_
- pi7 -> new_n23_
- pi0 -> new_n23_
- pi2 -> new_n23_
- pi2 -> new_n24_
- pi0 -> new_n24_
- pi3 -> new_n24_
- pi4 -> new_n24_
- pi6 -> new_n25_
- pi5 -> new_n25_
- pi4 -> new_n25_
- pi5 -> new_n26_
- pi2 -> new_n26_
- pi6 -> new_n26_
- pi4 -> new_n27_
- pi6 -> new_n27_
- pi2 -> new_n27_
- pi5 -> new_n27_
- pi7 -> new_n28_
- pi2 -> new_n28_
- new_n27_ -> new_n28_
- pi3 -> new_n28_
- new_n25_ -> new_n29_
- new_n26_ -> new_n29_
- new_n28_ -> new_n29_
- pi0 -> new_n29_
- pi6 -> new_n30_
- new_n24_ -> new_n30_
- new_n29_ -> new_n30_
- new_n23_ -> new_n30_
- pi4 -> new_n31_
- pi0 -> new_n31_
- pi6 -> new_n31_
- pi3 -> new_n31_
- pi1 -> new_n32_
- new_n31_ -> new_n32_
- pi5 -> new_n32_
- pi1 -> new_n33_
- pi0 -> new_n33_
- pi5 -> new_n34_
- pi7 -> new_n34_
- new_n33_ -> new_n34_
- pi2 -> new_n34_
- new_n34_ -> new_n35_
- pi4 -> new_n35_
- pi6 -> new_n35_
- new_n32_ -> new_n35_
- new_n30_ -> new_n36_
- pi1 -> new_n36_
- new_n35_ -> new_n36_
- pi8 -> new_n36_
- new_n16_ -> new_n37_
- pi7 -> new_n37_
- pi3 -> new_n37_
- pi5 -> new_n38_
- pi6 -> new_n38_
- pi1 -> new_n38_
- pi3 -> new_n38_
- pi8 -> new_n39_
- pi1 -> new_n39_
- pi5 -> new_n39_
- pi2 -> new_n39_
- pi3 -> new_n40_
- new_n39_ -> new_n40_
- new_n38_ -> new_n40_
- pi7 -> new_n40_
- pi1 -> new_n41_
- pi7 -> new_n41_
- pi8 -> new_n41_
- pi3 -> new_n42_
- pi1 -> new_n42_
- pi5 -> new_n42_
- new_n41_ -> new_n42_
- new_n42_ -> new_n43_
- pi2 -> new_n43_
- pi6 -> new_n43_
- new_n37_ -> new_n44_
- new_n40_ -> new_n44_
- pi4 -> new_n44_
- new_n43_ -> new_n44_
- pi1 -> new_n45_
- pi6 -> new_n45_
- pi7 -> new_n45_
- pi3 -> new_n45_
- new_n45_ -> new_n46_
- pi4 -> new_n46_
- pi2 -> new_n46_
- pi5 -> new_n46_
- pi4 -> new_n47_
- pi6 -> new_n47_
- pi2 -> new_n47_
- pi7 -> new_n47_
- pi5 -> new_n48_
- pi1 -> new_n48_
- pi7 -> new_n48_
- pi4 -> new_n48_
- new_n48_ -> new_n49_
- new_n47_ -> new_n49_
- pi3 -> new_n49_
- pi8 -> new_n49_
- new_n46_ -> new_n50_
- new_n49_ -> new_n50_
- new_n44_ -> new_n50_
- pi0 -> new_n50_
- pi2 -> new_n51_
- pi1 -> new_n51_
- pi6 -> new_n51_
- pi5 -> new_n51_
- pi4 -> new_n52_
- pi5 -> new_n52_
- pi2 -> new_n52_
- pi8 -> new_n52_
- pi4 -> new_n53_
- pi1 -> new_n53_
- pi2 -> new_n53_
- pi0 -> new_n53_
- pi6 -> new_n54_
- new_n53_ -> new_n54_
- new_n52_ -> new_n54_
- pi8 -> new_n55_
- new_n51_ -> new_n55_
- new_n54_ -> new_n55_
- pi3 -> new_n55_
- pi4 -> new_n56_
- pi1 -> new_n56_
- pi8 -> new_n56_
- new_n56_ -> new_n57_
- pi5 -> new_n57_
- pi0 -> new_n57_
- pi2 -> new_n58_
- pi0 -> new_n58_
- pi1 -> new_n58_
- new_n58_ -> new_n59_
- pi4 -> new_n59_
- pi3 -> new_n59_
- pi3 -> new_n60_
- pi5 -> new_n60_
- pi2 -> new_n60_
- pi4 -> new_n60_
- new_n60_ -> new_n61_
- pi0 -> new_n61_
- pi1 -> new_n61_
- new_n59_ -> new_n62_
- new_n61_ -> new_n62_
- new_n57_ -> new_n62_
- pi6 -> new_n62_
- pi4 -> new_n63_
- pi5 -> new_n63_
- pi6 -> new_n63_
- pi3 -> new_n63_
- pi8 -> new_n64_
- new_n63_ -> new_n64_
- new_n62_ -> new_n65_
- new_n64_ -> new_n65_
- new_n55_ -> new_n65_
- pi7 -> new_n65_
- pi1 -> new_n66_
- pi6 -> new_n66_
- pi4 -> new_n66_
- pi7 -> new_n66_
- pi7 -> new_n67_
- pi4 -> new_n67_
- pi0 -> new_n67_
- pi6 -> new_n67_
- pi3 -> new_n68_
- new_n67_ -> new_n68_
- new_n66_ -> new_n68_
- new_n56_ -> new_n69_
- pi7 -> new_n69_
- pi6 -> new_n69_
- new_n68_ -> new_n69_
- pi1 -> new_n70_
- pi2 -> new_n70_
- pi7 -> new_n70_
- pi3 -> new_n70_
- new_n70_ -> new_n71_
- pi8 -> new_n71_
- pi4 -> new_n71_
- pi0 -> new_n72_
- pi1 -> new_n72_
- pi2 -> new_n72_
- new_n58_ -> new_n73_
- pi8 -> new_n73_
- new_n72_ -> new_n73_
- pi7 -> new_n73_
- new_n47_ -> new_n74_
- pi1 -> new_n74_
- pi8 -> new_n74_
- new_n71_ -> new_n75_
- new_n73_ -> new_n75_
- pi6 -> new_n75_
- new_n74_ -> new_n75_
- new_n69_ -> new_n76_
- pi2 -> new_n76_
- new_n75_ -> new_n76_
- pi5 -> new_n76_
- pi3 -> new_n77_
- pi6 -> new_n77_
- pi7 -> new_n77_
- pi4 -> new_n78_
- pi5 -> new_n78_
- new_n77_ -> new_n78_
- pi8 -> new_n78_
- pi4 -> new_n79_
- pi5 -> new_n79_
- new_n16_ -> new_n79_
- pi1 -> new_n80_
- pi2 -> new_n80_
- pi3 -> new_n80_
- pi5 -> new_n80_
- new_n16_ -> new_n81_
- new_n12_ -> new_n81_
- new_n80_ -> new_n81_
- new_n79_ -> new_n82_
- pi6 -> new_n82_
- pi0 -> new_n82_
- new_n81_ -> new_n82_
- pi4 -> new_n83_
- pi5 -> new_n83_
- pi8 -> new_n83_
- pi3 -> new_n83_
- pi4 -> new_n84_
- pi0 -> new_n84_
- pi6 -> new_n84_
- pi8 -> new_n84_
- pi3 -> new_n85_
- new_n84_ -> new_n85_
- pi5 -> new_n85_
- pi6 -> new_n86_
- new_n83_ -> new_n86_
- new_n85_ -> new_n86_
- new_n82_ -> new_n87_
- pi8 -> new_n87_
- new_n86_ -> new_n87_
- pi7 -> new_n87_
- new_n65_ -> new_n88_
- new_n76_ -> new_n88_
- new_n87_ -> new_n88_
- new_n78_ -> new_n88_
- new_n22_ -> po0
- new_n36_ -> po0
- new_n50_ -> po0
- new_n88_ -> po0
+strict digraph "g" {
+pi5;
+new_n12_;
+pi3;
+pi4;
+new_n13_;
+pi7;
+pi6;
+pi8;
+new_n14_;
+new_n15_;
+pi1;
+pi2;
+new_n16_;
+new_n17_;
+new_n18_;
+new_n19_;
+new_n20_;
+new_n21_;
+new_n22_;
+pi0;
+new_n23_;
+new_n24_;
+new_n25_;
+new_n26_;
+new_n27_;
+new_n28_;
+new_n29_;
+new_n30_;
+new_n31_;
+new_n32_;
+new_n33_;
+new_n34_;
+new_n35_;
+new_n36_;
+new_n37_;
+new_n38_;
+new_n39_;
+new_n40_;
+new_n41_;
+new_n42_;
+new_n43_;
+new_n44_;
+new_n45_;
+new_n46_;
+new_n47_;
+new_n48_;
+new_n49_;
+new_n50_;
+new_n51_;
+new_n52_;
+new_n53_;
+new_n54_;
+new_n55_;
+new_n56_;
+new_n57_;
+new_n58_;
+new_n59_;
+new_n60_;
+new_n61_;
+new_n62_;
+new_n63_;
+new_n64_;
+new_n65_;
+new_n66_;
+new_n67_;
+new_n68_;
+new_n69_;
+new_n70_;
+new_n71_;
+new_n72_;
+new_n73_;
+new_n74_;
+new_n75_;
+new_n76_;
+new_n77_;
+new_n78_;
+new_n79_;
+new_n80_;
+new_n81_;
+new_n82_;
+new_n83_;
+new_n84_;
+new_n85_;
+new_n86_;
+new_n87_;
+new_n88_;
+po0;
+"out:po0";
+pi5 -> new_n12_;
+pi5 -> new_n13_;
+pi5 -> new_n18_;
+pi5 -> new_n19_;
+pi5 -> new_n21_;
+pi5 -> new_n25_;
+pi5 -> new_n26_;
+pi5 -> new_n27_;
+pi5 -> new_n32_;
+pi5 -> new_n34_;
+pi5 -> new_n38_;
+pi5 -> new_n39_;
+pi5 -> new_n42_;
+pi5 -> new_n46_;
+pi5 -> new_n48_;
+pi5 -> new_n51_;
+pi5 -> new_n52_;
+pi5 -> new_n57_;
+pi5 -> new_n60_;
+pi5 -> new_n63_;
+pi5 -> new_n76_;
+pi5 -> new_n78_;
+pi5 -> new_n79_;
+pi5 -> new_n80_;
+pi5 -> new_n83_;
+pi5 -> new_n85_;
+new_n12_ -> new_n13_;
+new_n12_ -> new_n81_;
+pi3 -> new_n12_;
+pi3 -> new_n14_;
+pi3 -> new_n20_;
+pi3 -> new_n21_;
+pi3 -> new_n24_;
+pi3 -> new_n28_;
+pi3 -> new_n31_;
+pi3 -> new_n37_;
+pi3 -> new_n38_;
+pi3 -> new_n40_;
+pi3 -> new_n42_;
+pi3 -> new_n45_;
+pi3 -> new_n49_;
+pi3 -> new_n55_;
+pi3 -> new_n59_;
+pi3 -> new_n60_;
+pi3 -> new_n63_;
+pi3 -> new_n68_;
+pi3 -> new_n70_;
+pi3 -> new_n77_;
+pi3 -> new_n80_;
+pi3 -> new_n83_;
+pi3 -> new_n85_;
+pi4 -> new_n12_;
+pi4 -> new_n14_;
+pi4 -> new_n19_;
+pi4 -> new_n21_;
+pi4 -> new_n24_;
+pi4 -> new_n25_;
+pi4 -> new_n27_;
+pi4 -> new_n31_;
+pi4 -> new_n35_;
+pi4 -> new_n44_;
+pi4 -> new_n46_;
+pi4 -> new_n47_;
+pi4 -> new_n48_;
+pi4 -> new_n52_;
+pi4 -> new_n53_;
+pi4 -> new_n56_;
+pi4 -> new_n59_;
+pi4 -> new_n60_;
+pi4 -> new_n63_;
+pi4 -> new_n66_;
+pi4 -> new_n67_;
+pi4 -> new_n71_;
+pi4 -> new_n78_;
+pi4 -> new_n79_;
+pi4 -> new_n83_;
+pi4 -> new_n84_;
+new_n13_ -> new_n14_;
+pi7 -> new_n13_;
+pi7 -> new_n17_;
+pi7 -> new_n23_;
+pi7 -> new_n28_;
+pi7 -> new_n34_;
+pi7 -> new_n37_;
+pi7 -> new_n40_;
+pi7 -> new_n41_;
+pi7 -> new_n45_;
+pi7 -> new_n47_;
+pi7 -> new_n48_;
+pi7 -> new_n65_;
+pi7 -> new_n66_;
+pi7 -> new_n67_;
+pi7 -> new_n69_;
+pi7 -> new_n70_;
+pi7 -> new_n73_;
+pi7 -> new_n77_;
+pi7 -> new_n87_;
+pi6 -> new_n13_;
+pi6 -> new_n18_;
+pi6 -> new_n19_;
+pi6 -> new_n23_;
+pi6 -> new_n25_;
+pi6 -> new_n26_;
+pi6 -> new_n27_;
+pi6 -> new_n30_;
+pi6 -> new_n31_;
+pi6 -> new_n35_;
+pi6 -> new_n38_;
+pi6 -> new_n43_;
+pi6 -> new_n45_;
+pi6 -> new_n47_;
+pi6 -> new_n51_;
+pi6 -> new_n54_;
+pi6 -> new_n62_;
+pi6 -> new_n63_;
+pi6 -> new_n66_;
+pi6 -> new_n67_;
+pi6 -> new_n69_;
+pi6 -> new_n75_;
+pi6 -> new_n77_;
+pi6 -> new_n82_;
+pi6 -> new_n84_;
+pi6 -> new_n86_;
+pi8 -> new_n14_;
+pi8 -> new_n17_;
+pi8 -> new_n18_;
+pi8 -> new_n36_;
+pi8 -> new_n39_;
+pi8 -> new_n41_;
+pi8 -> new_n49_;
+pi8 -> new_n52_;
+pi8 -> new_n55_;
+pi8 -> new_n56_;
+pi8 -> new_n64_;
+pi8 -> new_n71_;
+pi8 -> new_n73_;
+pi8 -> new_n74_;
+pi8 -> new_n78_;
+pi8 -> new_n83_;
+pi8 -> new_n84_;
+pi8 -> new_n87_;
+new_n14_ -> new_n15_;
+new_n15_ -> new_n22_;
+pi1 -> new_n15_;
+pi1 -> new_n16_;
+pi1 -> new_n19_;
+pi1 -> new_n32_;
+pi1 -> new_n33_;
+pi1 -> new_n36_;
+pi1 -> new_n38_;
+pi1 -> new_n39_;
+pi1 -> new_n41_;
+pi1 -> new_n42_;
+pi1 -> new_n45_;
+pi1 -> new_n48_;
+pi1 -> new_n51_;
+pi1 -> new_n53_;
+pi1 -> new_n56_;
+pi1 -> new_n58_;
+pi1 -> new_n61_;
+pi1 -> new_n66_;
+pi1 -> new_n70_;
+pi1 -> new_n72_;
+pi1 -> new_n74_;
+pi1 -> new_n80_;
+pi2 -> new_n15_;
+pi2 -> new_n16_;
+pi2 -> new_n18_;
+pi2 -> new_n23_;
+pi2 -> new_n24_;
+pi2 -> new_n26_;
+pi2 -> new_n27_;
+pi2 -> new_n28_;
+pi2 -> new_n34_;
+pi2 -> new_n39_;
+pi2 -> new_n43_;
+pi2 -> new_n46_;
+pi2 -> new_n47_;
+pi2 -> new_n51_;
+pi2 -> new_n52_;
+pi2 -> new_n53_;
+pi2 -> new_n58_;
+pi2 -> new_n60_;
+pi2 -> new_n70_;
+pi2 -> new_n72_;
+pi2 -> new_n76_;
+pi2 -> new_n80_;
+new_n16_ -> new_n17_;
+new_n16_ -> new_n21_;
+new_n16_ -> new_n37_;
+new_n16_ -> new_n79_;
+new_n16_ -> new_n81_;
+new_n17_ -> new_n20_;
+new_n18_ -> new_n20_;
+new_n19_ -> new_n20_;
+new_n20_ -> new_n22_;
+new_n21_ -> new_n22_;
+new_n22_ -> po0;
+pi0 -> new_n22_;
+pi0 -> new_n23_;
+pi0 -> new_n24_;
+pi0 -> new_n29_;
+pi0 -> new_n31_;
+pi0 -> new_n33_;
+pi0 -> new_n50_;
+pi0 -> new_n53_;
+pi0 -> new_n57_;
+pi0 -> new_n58_;
+pi0 -> new_n61_;
+pi0 -> new_n67_;
+pi0 -> new_n72_;
+pi0 -> new_n82_;
+pi0 -> new_n84_;
+new_n23_ -> new_n30_;
+new_n24_ -> new_n30_;
+new_n25_ -> new_n29_;
+new_n26_ -> new_n29_;
+new_n27_ -> new_n28_;
+new_n28_ -> new_n29_;
+new_n29_ -> new_n30_;
+new_n30_ -> new_n36_;
+new_n31_ -> new_n32_;
+new_n32_ -> new_n35_;
+new_n33_ -> new_n34_;
+new_n34_ -> new_n35_;
+new_n35_ -> new_n36_;
+new_n36_ -> po0;
+new_n37_ -> new_n44_;
+new_n38_ -> new_n40_;
+new_n39_ -> new_n40_;
+new_n40_ -> new_n44_;
+new_n41_ -> new_n42_;
+new_n42_ -> new_n43_;
+new_n43_ -> new_n44_;
+new_n44_ -> new_n50_;
+new_n45_ -> new_n46_;
+new_n46_ -> new_n50_;
+new_n47_ -> new_n49_;
+new_n47_ -> new_n74_;
+new_n48_ -> new_n49_;
+new_n49_ -> new_n50_;
+new_n50_ -> po0;
+new_n51_ -> new_n55_;
+new_n52_ -> new_n54_;
+new_n53_ -> new_n54_;
+new_n54_ -> new_n55_;
+new_n55_ -> new_n65_;
+new_n56_ -> new_n57_;
+new_n56_ -> new_n69_;
+new_n57_ -> new_n62_;
+new_n58_ -> new_n59_;
+new_n58_ -> new_n73_;
+new_n59_ -> new_n62_;
+new_n60_ -> new_n61_;
+new_n61_ -> new_n62_;
+new_n62_ -> new_n65_;
+new_n63_ -> new_n64_;
+new_n64_ -> new_n65_;
+new_n65_ -> new_n88_;
+new_n66_ -> new_n68_;
+new_n67_ -> new_n68_;
+new_n68_ -> new_n69_;
+new_n69_ -> new_n76_;
+new_n70_ -> new_n71_;
+new_n71_ -> new_n75_;
+new_n72_ -> new_n73_;
+new_n73_ -> new_n75_;
+new_n74_ -> new_n75_;
+new_n75_ -> new_n76_;
+new_n76_ -> new_n88_;
+new_n77_ -> new_n78_;
+new_n78_ -> new_n88_;
+new_n79_ -> new_n82_;
+new_n80_ -> new_n81_;
+new_n81_ -> new_n82_;
+new_n82_ -> new_n87_;
+new_n83_ -> new_n86_;
+new_n84_ -> new_n85_;
+new_n85_ -> new_n86_;
+new_n86_ -> new_n87_;
+new_n87_ -> new_n88_;
+new_n88_ -> po0;
+po0 -> "out:po0";
 }

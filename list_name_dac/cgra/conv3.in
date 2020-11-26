@@ -22,3 +22,4 @@
 21 load17
 22 add20
 23 store23
+24 out:store23

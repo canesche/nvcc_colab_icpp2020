@@ -18,6 +18,6 @@ pdc
 
 for ((i=0; i < ${#GRAPH[@]}; i++)) do
     echo "GRAPH "${GRAPH[i]}" TO LIST"
-    python3 scripts/dot_to_list.py dot_dac/fpga/${GRAPH[i]}.dot > list_dac/fpga/${GRAPH[i]}.in 
+    python3 scripts/dot_to_list_inout.py dot_dac/fpga/${GRAPH[i]}.dot > list_dac/fpga/${GRAPH[i]}.in 
     python3 scripts/dot_to_list_name.py dot_dac/fpga/${GRAPH[i]}.dot > list_name_dac/fpga/${GRAPH[i]}.in 
 done

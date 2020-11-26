@@ -10,3 +10,4 @@
 9 load5
 10 store9
 11 add6
+12 out:store9

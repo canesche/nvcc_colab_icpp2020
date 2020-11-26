@@ -1,4 +1,4 @@
-strict digraph  {
+strict digraph "G" {
 0;
 4 [label=MULT4];
 5 [label=MULT5];
@@ -54,6 +54,7 @@ strict digraph  {
 52 [label=SUB];
 53 [label=SUB];
 54 [label=SUB];
+"out:38";
 0 -> 39;
 0 -> 40;
 0 -> 41;
@@ -106,6 +107,7 @@ strict digraph  {
 35 -> 37;
 36 -> 37;
 37 -> 38;
+38 -> "out:38";
 39 -> 4;
 40 -> 5;
 41 -> 6;
